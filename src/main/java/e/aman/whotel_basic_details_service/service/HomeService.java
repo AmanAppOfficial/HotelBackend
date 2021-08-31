@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import e.aman.whotel_basic_details_service.controller.CitiesController;
 import e.aman.whotel_basic_details_service.controller.HomeController;
+import e.aman.whotel_basic_details_service.controller.HotelsController;
 import e.aman.whotel_basic_details_service.controller.OffersController;
 import e.aman.whotel_basic_details_service.model.Home;
 
@@ -22,6 +23,9 @@ public class HomeService {
 	@Autowired
 	private OffersController offerController;
 	
+	@Autowired
+	private HotelsController hotelsController;
+	
 	
 	public ResponseEntity<Home> getHomeDetails(){
 		
@@ -29,6 +33,7 @@ public class HomeService {
 		
 		home.setCities(cityController.getCities());
 		home.setOffers(offerController.getOffers());
+		home.setRecommended(hotelsController.getRecommendedHotels(4));
 		
 		Link selfLink = linkTo(methodOn(HomeController.class).getHomeDetails()).withSelfRel();
 		home.add(selfLink);

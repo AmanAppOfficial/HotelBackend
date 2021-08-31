@@ -9,6 +9,7 @@ public class Home extends RepresentationModel<Home>{
 	
 	private ResponseEntity<CollectionModel<Cities>> cities;
 	private ResponseEntity<CollectionModel<Offers>> offers;
+	private ResponseEntity<CollectionModel<Hotels>> recommended;
 	
 	public Home() {}
 
@@ -28,6 +29,15 @@ public class Home extends RepresentationModel<Home>{
 		this.offers = offers;
 	}
 
+	public ResponseEntity<CollectionModel<Hotels>> getRecommended() {
+		return recommended;
+	}
+
+	public void setRecommended(ResponseEntity<CollectionModel<Hotels>> recommended) {
+		this.recommended = recommended;
+	}
+
+	
 	
 	
 	
